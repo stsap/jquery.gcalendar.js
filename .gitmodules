@@ -1,0 +1,3 @@
+[submodule "extlib/jquery-jcal"]
+	path = extlib/jquery-jcal
+	url = https://github.com/stsap/jquery-jcal.git

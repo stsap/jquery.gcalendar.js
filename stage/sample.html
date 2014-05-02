@@ -1,0 +1,62 @@
+<!DOCTYPE>
+<html>
+<head>
+<link rel="stylesheet" href="/extlib/jquery-jcal/jCal.css" />
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/moment.min.js"></script>
+<script type="text/javascript" src="/extlib/jquery-jcal/jCal.js"></script>
+<script type="text/javascript" src="/js/jquery.gcalendar.js"></script>
+<script type="text/javascript">
+$(function () {
+    $("#wrapper").gCalendar({
+        /// is required to be set as the "general public" google calendar
+        /// https://support.google.com/calendar/answer/37083
+        googleuser: "jq.gcalendar@gmail.com",
+        /// not set in using default.
+//        googlebase: "http://www.google.com/calendar/feeds/",
+//        googleparam: {
+//            orderby: "starttime",
+//            sortorder: "ascend",
+//            "max-results": 365,
+//            alt: "json-in-script",
+//        },
+//        calendarType: "/public/full",
+        addingClasses: [
+            {title: "team meeting", class: "job"},
+            {title: "holiday", class: "holiday"},
+            {title: "working at home", class: "athome"}
+        ],
+//        disableMonthControl: true,
+//        disableDaySelection: true,
+        // diff months from [jcalopts.day]
+        monthControlLimit: {max: 5, min: 5},
+//        gScheduleStartDate: moment("2012/10", "YYYY/MM"),
+//        gScheduleEndDate: moment("2015/12", "YYYY/MM"),
+        swapYearMonthPosition: true,
+        addYearUnit: true,
+        yearUnit: "年",
+        jcalopts: {
+            day: new Date(),
+            dow: ["日", "Mon", "Tuesday" , "水", "木", "Fri.", "sat"],
+            ml: ["January", "2月", "Mar.", "april", "5月", "6月", "文月", "august.", "長月", "10月", "十一月", "拾弐月"],
+            showMonths: 3
+        }
+    })
+});
+</script>
+<style>
+    div.day.job {
+        background-color: #CCC;
+    }
+    div.day.holiday {
+        background-color: red;
+    }
+    div.day.athome {
+        background-color: yellow;
+    }
+</style>
+</head>
+<body>
+<div id="wrapper"></div>
+</body>
+</html>
